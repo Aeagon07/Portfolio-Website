@@ -94,7 +94,7 @@ export const projects = [
       "Glassmorphism UI: Custom cursor trails and premium glow effects"
     ],
     image: "/assets/projects/portfolio.png",
-    tags: ["React", "Three.js", "GSAP", "Framer Motion", "Vite", "Tailwind CSS"],
+    tags: ["React", "Three.js", "GSAP", "Framer Motion", "Tailwind CSS"],
     githubLink: "https://github.com/Aeagon07/Portfolio-Website.git",
     liveLink: "#",
     featured: true,
@@ -107,78 +107,78 @@ export const projects = [
     category: "Marketing Workflow System",
     description: "Built MarketMind, an AI-powered marketing automation platform that streamlines campaign creation, content generation, and team collaboration.",
     features: [
-      "AI-powered content generation",
-      "Real-time analytics dashboard",
-      "Intelligent workflow automation",
-      "WebGL 3D visualizations",
-      "Seamless API integrations"
+      "Campaign Automation: AI-driven workflow for seamless campaign creation",
+      "Content Generation: Automated high-engaging marketing content",
+      "Performance Prediction: Advanced analytics to predict campaign success",
+      "Team Collaboration: Role-based access and shared planning tools",
+      "Content Planning: Integrated tools for strategic scheduling"
     ],
-    image: null,
-    tags: ["Next.js", "TypeScript", "Three.js", "Tailwind CSS", "OpenAI"],
-    githubLink: "https://github.com/yourusername/ai-platform",
-    liveLink: "https://ai-saas-platform.vercel.app",
+    image: "/assets/projects/marketmind.png",
+    tags: ["Next.js", "TypeScript", "Recharts", "Tailwind CSS", "PostgreSQL", "Supabase", "WebSockets", "Groq API"],
+    githubLink: "https://github.com/Shiva200505/HM067_Pirates-of-Technology.git",
+    liveLink: "https://hm-067-hack-matrix-wybk.vercel.app/",
     featured: true,
     themeColor: "#ec4899", // Pink
     color: "pink",
   },
-  {
-    id: 4,
-    title: "Cloud DevOps Hub",
-    category: "DevOps Tool",
-    description: "Centralized dashboard for monitoring infrastructure health, CI/CD pipelines, and resource allocation.",
-    features: [
-      "Kubernetes cluster monitoring",
-      "Automated pipeline triggers",
-      "Real-time log aggregation",
-      "Cost optimization insights",
-      "Multi-cloud support"
-    ],
-    image: null,
-    tags: ["Docker", "Kubernetes", "AWS", "Go", "Prometheus"],
-    githubLink: "https://github.com/yourusername/devops-hub",
-    liveLink: "https://devops-dashboard.cloud",
-    featured: true,
-    themeColor: "#22c55e", // Green
-    color: "green",
-  },
-  {
-    id: 5,
-    title: "Task Management System",
-    category: "SaaS",
-    description: "A collaborative project management tool with Kanban boards, real-time updates, and team workflows.",
-    features: [
-      "Kanban board visualization",
-      "Real-time team collaboration",
-      "Notification system",
-      "File attachment support"
-    ],
-    image: null,
-    tags: ["React", "Firebase", "Redux", "Material UI"],
-    githubLink: "https://github.com/yourusername/taskmanager",
-    liveLink: "https://yourtaskapp.vercel.app",
-    featured: false,
-    themeColor: "#14b8a6", // Teal
-    color: "teal",
-  },
-  {
-    id: 6,
-    title: "AI Chat Application",
-    category: "AI",
-    description: "Real-time chat application powered by OpenAI API with support for multiple conversations.",
-    features: [
-      "Multi-model AI support",
-      "Context-aware conversations",
-      "Real-time streaming responses",
-      "Markdown rendering"
-    ],
-    image: null,
-    tags: ["Next.js", "OpenAI", "Socket.IO", "TypeScript"],
-    githubLink: "https://github.com/yourusername/ai-chat",
-    liveLink: null,
-    featured: false,
-    themeColor: "#3b82f6", // Blue
-    color: "blue",
-  },
+  // {
+  //   id: 4,
+  //   title: "Cloud DevOps Hub",
+  //   category: "DevOps Tool",
+  //   description: "Centralized dashboard for monitoring infrastructure health, CI/CD pipelines, and resource allocation.",
+  //   features: [
+  //     "Kubernetes cluster monitoring",
+  //     "Automated pipeline triggers",
+  //     "Real-time log aggregation",
+  //     "Cost optimization insights",
+  //     "Multi-cloud support"
+  //   ],
+  //   image: null,
+  //   tags: ["Docker", "Kubernetes", "AWS", "Go", "Prometheus"],
+  //   githubLink: "https://github.com/yourusername/devops-hub",
+  //   liveLink: "https://devops-dashboard.cloud",
+  //   featured: true,
+  //   themeColor: "#22c55e", // Green
+  //   color: "green",
+  // },
+  // {
+  //   id: 5,
+  //   title: "Task Management System",
+  //   category: "SaaS",
+  //   description: "A collaborative project management tool with Kanban boards, real-time updates, and team workflows.",
+  //   features: [
+  //     "Kanban board visualization",
+  //     "Real-time team collaboration",
+  //     "Notification system",
+  //     "File attachment support"
+  //   ],
+  //   image: null,
+  //   tags: ["React", "Firebase", "Redux", "Material UI"],
+  //   githubLink: "https://github.com/yourusername/taskmanager",
+  //   liveLink: "https://yourtaskapp.vercel.app",
+  //   featured: false,
+  //   themeColor: "#14b8a6", // Teal
+  //   color: "teal",
+  // },
+  // {
+  //   id: 6,
+  //   title: "AI Chat Application",
+  //   category: "AI",
+  //   description: "Real-time chat application powered by OpenAI API with support for multiple conversations.",
+  //   features: [
+  //     "Multi-model AI support",
+  //     "Context-aware conversations",
+  //     "Real-time streaming responses",
+  //     "Markdown rendering"
+  //   ],
+  //   image: null,
+  //   tags: ["Next.js", "OpenAI", "Socket.IO", "TypeScript"],
+  //   githubLink: "https://github.com/yourusername/ai-chat",
+  //   liveLink: null,
+  //   featured: false,
+  //   themeColor: "#3b82f6", // Blue
+  //   color: "blue",
+  // },
 ];
 
 export const leetcodeStats = {

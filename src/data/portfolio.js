@@ -93,7 +93,7 @@ export const projects = [
       "Dynamic Stats: Real-time LeetCode and GitHub integration",
       "Glassmorphism UI: Custom cursor trails and premium glow effects"
     ],
-    image: null,
+    image: "/assets/projects/portfolio.png",
     tags: ["React", "Three.js", "GSAP", "Framer Motion", "Vite", "Tailwind CSS"],
     githubLink: "https://github.com/Aeagon07/Portfolio-Website.git",
     liveLink: "#",
@@ -103,9 +103,9 @@ export const projects = [
   },
   {
     id: 3,
-    title: "MarketMind–Intelligent Marketing Workflow System",
-    category: "Web Application",
-    description: "A cutting-edge SaaS platform powered by GPT-4 with real-time analytics and intelligent workflows.",
+    title: "MarketMind - Workflow Automation System",
+    category: "Marketing Workflow System",
+    description: "Built MarketMind, an AI-powered marketing automation platform that streamlines campaign creation, content generation, and team collaboration.",
     features: [
       "AI-powered content generation",
       "Real-time analytics dashboard",

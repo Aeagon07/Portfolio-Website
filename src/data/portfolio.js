@@ -67,11 +67,11 @@ export const projects = [
     category: "AI Platform",
     description: "Build a REAL Software-as-a-Service app with AI features and payments & credits system.",
     features: [
-      "User Authentication: Secure login/signup with Clerk",
-      "Image Generation: AI-powered tools via Cloudinary APIs",
-      "User Dashboard: Personalized space to view and manage generated images",
-      "Subscription Plans: Purchase premium access using Stripe",
-      "Server-side Rendering: Optimized performance and SEO via Next.js"
+      "🔐 User Authentication: Secure login/signup with Clerk",
+      "🎨 Image Generation: AI-powered tools via Cloudinary APIs",
+      "💼 User Dashboard: Personalized space to view and manage generated images",
+      "💳 Subscription Plans: Purchase premium access using Stripe",
+      "🌐 Server-side Rendering: Optimized performance and SEO via Next.js"
     ],
     image: "/assets/projects/imaginify.png",
     tags: ["Next.js 14", "MongoDB", "Cloudinary AI", "Stripe", "React", "TypeScript"],
@@ -83,20 +83,20 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Portfolio Engine",
-    category: "Creative Portfolio",
-    description: "Award-winning portfolio builder with cinematic parallax effects and smooth scrolling animations.",
+    title: "Cinematic Portfolio Engine",
+    category: "Personal Portfolio",
+    description: "Build a REAL high-performance portfolio featuring advanced 3D animations, custom UI components, and seamless user experience.",
     features: [
-      "Cinematic parallax scrolling",
-      "Drag-and-drop interface",
-      "Dynamic content management",
-      "Custom theme builder",
-      "SEO optimization built-in"
+      "🚀 3D Interactive Hero: Three.js & GSAP powered floating objects",
+      "🎬 Cinematic Preloader: Scanner effect & terminal sequence",
+      "📜 Premium Certificates: Interactive envelope reveal with 4-card slider",
+      "📊 Dynamic Stats: Real-time LeetCode and GitHub integration",
+      "✨ Glassmorphism UI: Custom cursor trails and premium glow effects"
     ],
     image: null,
-    tags: ["Vite", "Framer Motion", "Lenis", "Tailwind CSS"],
+    tags: ["React", "Three.js", "GSAP", "Framer Motion", "Vite", "Tailwind CSS"],
     githubLink: "https://github.com/Aeagon07/Portfolio-Website.git",
-    liveLink: "https://yourproject.netlify.app",
+    liveLink: "#",
     featured: true,
     themeColor: "#f59e0b", // Orange/Gold
     color: "gold",

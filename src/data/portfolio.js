@@ -67,11 +67,11 @@ export const projects = [
     category: "AI Platform",
     description: "Build a REAL Software-as-a-Service app with AI features and payments & credits system.",
     features: [
-      "🔐 User Authentication: Secure login/signup with Clerk",
-      "🎨 Image Generation: AI-powered tools via Cloudinary APIs",
-      "💼 User Dashboard: Personalized space to view and manage generated images",
-      "💳 Subscription Plans: Purchase premium access using Stripe",
-      "🌐 Server-side Rendering: Optimized performance and SEO via Next.js"
+      "User Authentication: Secure login/signup with Clerk",
+      "Image Generation: AI-powered tools via Cloudinary APIs",
+      "User Dashboard: Personalized space to view and manage generated images",
+      "Subscription Plans: Purchase premium access using Stripe",
+      "Server-side Rendering: Optimized performance and SEO via Next.js"
     ],
     image: "/assets/projects/imaginify.png",
     tags: ["Next.js 14", "MongoDB", "Cloudinary AI", "Stripe", "React", "TypeScript"],
@@ -87,11 +87,11 @@ export const projects = [
     category: "Personal Portfolio",
     description: "Build a REAL high-performance portfolio featuring advanced 3D animations, custom UI components, and seamless user experience.",
     features: [
-      "🚀 3D Interactive Hero: Three.js & GSAP powered floating objects",
-      "🎬 Cinematic Preloader: Scanner effect & terminal sequence",
-      "📜 Premium Certificates: Interactive envelope reveal with 4-card slider",
-      "📊 Dynamic Stats: Real-time LeetCode and GitHub integration",
-      "✨ Glassmorphism UI: Custom cursor trails and premium glow effects"
+      "3D Interactive Hero: Three.js & GSAP powered floating objects",
+      "Cinematic Preloader: Scanner effect & terminal sequence",
+      "Premium Certificates: Interactive envelope reveal with 4-card slider",
+      "Dynamic Stats: Real-time LeetCode and GitHub integration",
+      "Glassmorphism UI: Custom cursor trails and premium glow effects"
     ],
     image: null,
     tags: ["React", "Three.js", "GSAP", "Framer Motion", "Vite", "Tailwind CSS"],
@@ -103,7 +103,7 @@ export const projects = [
   },
   {
     id: 3,
-    title: "AI SaaS Platform",
+    title: "MarketMind–Intelligent Marketing Workflow System",
     category: "Web Application",
     description: "A cutting-edge SaaS platform powered by GPT-4 with real-time analytics and intelligent workflows.",
     features: [

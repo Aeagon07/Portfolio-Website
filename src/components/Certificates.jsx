@@ -127,7 +127,7 @@ export default function Certificates() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="premium-certificates-title">
@@ -138,7 +138,13 @@ export default function Certificates() {
           </p>
         </motion.div>
 
-        <div className="certificates-slider-container">
+        <motion.div 
+          className="certificates-slider-container"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <button className="slider-arrow" onClick={prevSlide}>
             <ChevronLeft size={24} />
           </button>
@@ -160,7 +166,7 @@ export default function Certificates() {
           <button className="slider-arrow" onClick={nextSlide}>
             <ChevronRight size={24} />
           </button>
-        </div>
+        </motion.div>
 
         <div className="slider-dots">
           {Array.from({ length: maxIndex + 1 }).map((_, i) => (

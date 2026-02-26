@@ -14,7 +14,7 @@ export default function Skills() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '40px' }}
         >
@@ -33,7 +33,14 @@ export default function Skills() {
         </motion.div>
 
         {/* Skills Playground */}
-        <SkillsPlayground />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <SkillsPlayground />
+        </motion.div>
       </div>
     </section>
   );

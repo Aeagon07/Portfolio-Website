@@ -77,7 +77,7 @@ function OrbitingIcons() {
 }
 
 // LeetCode Card Component
-function LeetCodeCard() {
+function LeetCodeCard({ index }) {
   const { totalSolved, totalQuestions, rank, badges, reputation, categories } = leetcodeStats;
   const percentage = (totalSolved / totalQuestions) * 100;
   const circumference = 2 * Math.PI * 40;
@@ -85,7 +85,11 @@ function LeetCodeCard() {
 
   return (
     <motion.div 
-      variants={fadeUp} 
+      variants={fadeUp}
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, margin: "-50px" }}
       whileHover={{ scale: 1.02, y: -5, boxShadow: '0 0 25px rgba(76, 230, 255, 0.2)' }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="glass-card leetcode-card" 
@@ -149,12 +153,16 @@ function LeetCodeCard() {
 }
 
 // GitHub Card Component
-function GitHubCard() {
+function GitHubCard({ index }) {
   const { grade, stars, commits, prs, issues, contributedTo, languages } = githubStats;
   
   return (
     <motion.div 
-      variants={fadeUp} 
+      variants={fadeUp}
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, margin: "-50px" }}
       whileHover={{ scale: 1.02, y: -5, boxShadow: '0 0 25px rgba(139, 92, 246, 0.2)' }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="glass-card github-card"
@@ -361,7 +369,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '64px', textAlign: 'center' }}
         >
@@ -392,11 +400,13 @@ export default function About() {
           </div>
 
           {/* Right: Intro Text */}
-          <div>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <p
               style={{
                 fontSize: 'clamp(17px, 2.5vw, 20px)',
                 color: 'rgba(255,255,255,0.8)',
@@ -405,8 +415,8 @@ export default function About() {
               }}
             >
               {personal.bio}
-            </motion.p>
-          </div>
+            </p>
+          </motion.div>
         </div>
 
         {/* Stats Section: Side-by-Side Cards */}
@@ -416,12 +426,18 @@ export default function About() {
           gap: '24px', 
           marginBottom: '80px' 
         }}>
-          <GitHubCard />
-          <LeetCodeCard />
+          <GitHubCard index={0} />
+          <LeetCodeCard index={1} />
         </div>
 
         {/* Bottom Section: Tabs */}
-        <div className="tabs-container">
+        <motion.div 
+          className="tabs-container"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="tabs-header">
             <button 
               className={`tab-btn ${activeTab === 'education' ? 'active' : ''}`}
@@ -448,7 +464,7 @@ export default function About() {
               )}
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div 

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { personal, social } from '../data/portfolio';
 
@@ -13,21 +14,27 @@ export default function Footer() {
       alignItems: 'center',
     }}>
       {/* Centered Large Gradient Name */}
-      <h2 style={{
-        fontFamily: 'var(--font-display)',
-        fontSize: 'clamp(2.5rem, 10vw, 8rem)',
-        fontWeight: 900,
-        textAlign: 'center',
-        margin: '0 0 60px 0',
-        background: 'linear-gradient(135deg, var(--accent-purple), var(--accent-pink))',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text',
-        letterSpacing: '-0.03em',
-        lineHeight: 1.1,
-      }}>
+      <motion.h2 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(2.5rem, 10vw, 8rem)',
+          fontWeight: 900,
+          textAlign: 'center',
+          margin: '0 0 60px 0',
+          background: 'linear-gradient(135deg, var(--accent-purple), var(--accent-pink))',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          letterSpacing: '-0.03em',
+          lineHeight: 1.1,
+        }}
+      >
         {personal.name}
-      </h2>
+      </motion.h2>
 
       {/* Social Icons centered */}
       <div style={{

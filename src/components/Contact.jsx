@@ -40,7 +40,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           style={{ marginBottom: '64px', textAlign: 'center' }}
         >
@@ -72,10 +72,10 @@ export default function Contact() {
         }}>
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="glass-card"
             style={{ padding: '36px' }}
           >
@@ -171,10 +171,10 @@ export default function Contact() {
 
           {/* Info + Socials */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
           >
             {/* Info Card */}
@@ -233,7 +233,7 @@ export default function Contact() {
                       padding: '12px 16px',
                       background: 'rgba(255,255,255,0.03)',
                       border: '1px solid rgba(255,255,255,0.07)',
-                      borderRadius: '10px',
+                      borderRadius: '100px', // Updated to match other pills
                       color: 'rgba(255,255,255,0.7)',
                       textDecoration: 'none',
                       fontSize: '14px',
@@ -263,6 +263,7 @@ export default function Contact() {
               padding: '20px 24px',
               background: 'linear-gradient(135deg, rgba(76,230,255,0.05), rgba(99,102,241,0.05))',
               border: '1px solid rgba(76,230,255,0.15)',
+              borderRadius: '24px' // Consistent radius
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <div style={{

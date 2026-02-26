@@ -31,23 +31,36 @@ export default function Projects() {
     }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {/* Header - Compact */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '60px' }}
+        >
           <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.04em', margin: 0 }}>
             Featured <span style={{ color: activeProject.themeColor, transition: 'color 0.8s ease' }}>Projects</span>
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1rem', marginTop: '10px' }}>
             Transforming ideas into digital reality.
           </p>
-        </div>
+        </motion.div>
 
         {/* Featured Slider */}
-        <div className="featured-slider-container" style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)',
-          gap: '60px',
-          alignItems: 'center',
-          position: 'relative'
-        }}>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="featured-slider-container" 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)',
+            gap: '60px',
+            alignItems: 'center',
+            position: 'relative'
+          }}
+        >
           {/* Left: Image/Screenshot */}
           <div style={{ position: 'relative', perspective: '1000px' }}>
             <AnimatePresence mode="wait">
@@ -169,7 +182,7 @@ export default function Projects() {
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

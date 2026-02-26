@@ -357,6 +357,14 @@ function Timeline({ data, type }) {
 
 export default function About() {
   const [activeTab, setActiveTab] = useState('education');
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <section id="about" style={{ padding: 'clamp(80px, 10vw, 120px) 24px', position: 'relative' }}>
@@ -395,23 +403,31 @@ export default function About() {
           marginBottom: '40px',
         }}>
           {/* Left: Orbiting Icons */}
-          <div style={{ height: 'clamp(300px, 40vw, 450px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ 
+            height: isMobile ? '300px' : 'clamp(300px, 40vw, 450px)', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            transform: isMobile ? 'scale(0.8)' : 'none'
+          }}>
             <OrbitingIcons />
           </div>
 
           {/* Right: Intro Text */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: isMobile ? 0 : 30, y: isMobile ? 20 : 0 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <p
               style={{
-                fontSize: 'clamp(17px, 2.5vw, 20px)',
+                fontSize: isMobile ? '16px' : 'clamp(17px, 2.5vw, 20px)',
                 color: 'rgba(255,255,255,0.8)',
                 lineHeight: 1.6,
+                padding: isMobile ? '0 10px' : '0',
                 fontWeight: 500,
+                textAlign: isMobile ? 'center' : 'left'
               }}
             >
               {personal.bio}

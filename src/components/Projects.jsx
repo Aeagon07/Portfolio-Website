@@ -7,6 +7,14 @@ export default function Projects() {
   const featuredProjects = projects ? projects.filter(p => p.featured) : [];
   const [activeIdx, setActiveIdx] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for prev, 1 for next
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 992);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   if (!featuredProjects.length) return null;
 
@@ -55,8 +63,8 @@ export default function Projects() {
           className="featured-slider-container" 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)',
-            gap: '60px',
+            gridTemplateColumns: isMobile ? '1fr' : 'minmax(0, 1.1fr) minmax(0, 0.9fr)',
+            gap: isMobile ? '40px' : '60px',
             alignItems: 'center',
             position: 'relative'
           }}
@@ -135,11 +143,11 @@ export default function Projects() {
                   {activeProject.category}
                 </span>
 
-                <h3 style={{ fontSize: '2.8rem', fontWeight: 900, color: '#fff', margin: '16px 0 12px', lineHeight: 1.1 }}>
+                <h3 style={{ fontSize: isMobile ? '1.8rem' : '2.8rem', fontWeight: 900, color: '#fff', margin: '16px 0 12px', lineHeight: 1.1 }}>
                   {activeProject.title}
                 </h3>
 
-                <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginBottom: '24px', maxWidth: '95%' }}>
+                <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginBottom: '24px', maxWidth: '100%' }}>
                   {activeProject.description}
                 </p>
 

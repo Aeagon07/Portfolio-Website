@@ -114,7 +114,6 @@ export default function Hero() {
             lineHeight: 1.0,
             letterSpacing: '-0.03em',
             color: '#fff',
-            whiteSpace: 'nowrap', // Force one line
             marginBottom: '18px',
             textShadow: '0 2px 40px rgba(0,0,0,0.7)',
           }}

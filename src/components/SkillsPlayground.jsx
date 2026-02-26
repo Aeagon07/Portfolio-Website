@@ -84,17 +84,19 @@ export default function SkillsPlayground() {
       restitution: 0.8 // Bouncy walls
     };
     
-    const ground = Bodies.rectangle(width / 2, height + 50, width, 100, wallOptions);
-    const leftWall = Bodies.rectangle(-50, height / 2, 100, height, wallOptions);
-    const rightWall = Bodies.rectangle(width + 50, height / 2, 100, height, wallOptions);
-    const ceiling = Bodies.rectangle(width / 2, -50, width, 100, wallOptions);
+    // Large width/height for walls to ensure coverage even on resize
+    const wallThickness = 500;
+    const ground = Bodies.rectangle(width / 2, height + wallThickness / 2, 5000, wallThickness, wallOptions);
+    const leftWall = Bodies.rectangle(-wallThickness / 2, height / 2, wallThickness, 5000, wallOptions);
+    const rightWall = Bodies.rectangle(width + wallThickness / 2, height / 2, wallThickness, 5000, wallOptions);
+    const ceiling = Bodies.rectangle(width / 2, -wallThickness / 2, 5000, wallThickness, wallOptions);
 
     Composite.add(engine.world, [ground, leftWall, rightWall, ceiling]);
 
     // Create boxes
     const bodies = SKILLS_DATA.map((skill, i) => {
       const boxSize = 110; 
-      const x = (width / 2) + (Math.random() - 0.5) * (width * 0.7);
+      const x = (width / 2) + (Math.random() - 0.5) * (width * 0.85); // Wider spread
       const y = Math.random() * (height - 300) + 100;
 
       return Bodies.rectangle(x, y, boxSize, boxSize, {
@@ -170,7 +172,35 @@ export default function SkillsPlayground() {
       });
     });
 
+    // Handle Resizing
+    const handleResize = () => {
+      if (!containerRef.current) return;
+      const newWidth = containerRef.current.clientWidth;
+      const newHeight = containerRef.current.clientHeight;
+
+      // Update Render dimensions
+      render.options.width = newWidth;
+      render.options.height = newHeight;
+      render.canvas.width = newWidth * (window.devicePixelRatio || 1);
+      render.canvas.height = newHeight * (window.devicePixelRatio || 1);
+      render.canvas.style.width = `${newWidth}px`;
+      render.canvas.style.height = `${newHeight}px`;
+
+      // Update Wall positions (walls are wide enough to not need scaling)
+      Matter.Body.setPosition(ground, { x: newWidth / 2, y: newHeight + wallThickness / 2 });
+      Matter.Body.setPosition(leftWall, { x: -wallThickness / 2, y: newHeight / 2 });
+      Matter.Body.setPosition(rightWall, { x: newWidth + wallThickness / 2, y: newHeight / 2 });
+      Matter.Body.setPosition(ceiling, { x: newWidth / 2, y: -wallThickness / 2 });
+    };
+
+    // More robust: ResizeObserver
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+    resizeObserver.observe(containerRef.current);
+
     return () => {
+      resizeObserver.disconnect();
       render.canvas.remove();
       Render.stop(render);
       Runner.stop(runner);

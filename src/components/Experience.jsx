@@ -3,16 +3,17 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Briefcase, GraduationCap, MapPin, Calendar } from 'lucide-react';
 import { experience } from '../data/portfolio';
 
-function ExperienceCard({ item, index }) {
+function ExperienceCard({ item, index, isMobile }) {
   const isEven = index % 2 === 0;
+  const displayLeft = !isMobile && isEven;
 
   return (
     <div 
-      className={`timeline-item-container ${isEven ? 'left' : 'right'}`}
+      className={`timeline-item-container ${displayLeft ? 'left' : 'right'}`}
       style={{
         display: 'flex',
-        justifyContent: isEven ? 'flex-start' : 'flex-end',
-        padding: '40px 0',
+        justifyContent: isMobile ? 'flex-start' : (displayLeft ? 'flex-start' : 'flex-end'),
+        padding: isMobile ? '24px 0 24px 40px' : '40px 0',
         width: '100%',
         position: 'relative'
       }}
@@ -21,12 +22,12 @@ function ExperienceCard({ item, index }) {
       <div 
         style={{
           position: 'absolute',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
+          left: isMobile ? '0' : '50%',
+          top: isMobile ? '40px' : '50%',
+          transform: isMobile ? 'translateX(-50%)' : 'translate(-50%, -50%)',
           zIndex: 10,
-          width: '40px',
-          height: '40px',
+          width: isMobile ? '32px' : '40px',
+          height: isMobile ? '32px' : '40px',
           borderRadius: '50%',
           background: '#0a0a0c',
           border: '2px solid var(--accent-cyan)',
@@ -36,19 +37,19 @@ function ExperienceCard({ item, index }) {
           boxShadow: '0 0 20px rgba(76, 230, 255, 0.3)'
         }}
       >
-        {item.type === 'education' ? <GraduationCap size={18} color="var(--accent-purple)" /> : <Briefcase size={18} color="var(--accent-cyan)" />}
+        {item.type === 'education' ? <GraduationCap size={isMobile ? 14 : 18} color="var(--accent-purple)" /> : <Briefcase size={isMobile ? 14 : 18} color="var(--accent-cyan)" />}
       </div>
 
       {/* Card Content */}
       <motion.div
-        initial={{ opacity: 0, x: isEven ? -100 : 100, rotate: isEven ? -5 : 5 }}
+        initial={{ opacity: 0, x: isMobile ? 50 : (displayLeft ? -100 : 100), rotate: isMobile ? 0 : (displayLeft ? -5 : 5) }}
         whileInView={{ opacity: 1, x: 0, rotate: 0 }}
         viewport={{ once: false, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="glass-card experience-card"
         style={{
-          width: 'calc(50% - 60px)',
-          padding: '32px',
+          width: isMobile ? '100%' : 'calc(50% - 60px)',
+          padding: isMobile ? '24px' : '32px',
           position: 'relative',
           background: 'rgba(255, 255, 255, 0.03)',
           backdropFilter: 'blur(10px)',
@@ -60,7 +61,7 @@ function ExperienceCard({ item, index }) {
           <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--accent-cyan)', opacity: 0.8 }}>
             {item.duration}
           </span>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginTop: '4px' }}>
+          <h3 style={{ fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 800, color: '#fff', marginTop: '4px' }}>
             {item.role}
           </h3>
           <p style={{ fontSize: '1rem', fontWeight: 600, color: 'rgba(255,255,255,0.6)' }}>
@@ -92,6 +93,15 @@ function ExperienceCard({ item, index }) {
 
 export default function Experience() {
   const containerRef = useRef(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"]
@@ -104,19 +114,19 @@ export default function Experience() {
   });
 
   return (
-    <section id="experience" ref={containerRef} style={{ padding: '120px 24px', position: 'relative', overflow: 'hidden' }}>
+    <section id="experience" ref={containerRef} style={{ padding: isMobile ? '80px 20px' : '120px 24px', position: 'relative', overflow: 'hidden' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', position: 'relative' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '100px' }}
+          style={{ textAlign: 'center', marginBottom: isMobile ? '60px' : '100px' }}
         >
-          <h2 style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', fontWeight: 900, letterSpacing: '-0.04em', margin: 0 }}>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 900, letterSpacing: '-0.04em', margin: 0 }}>
             Experience
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.2rem', marginTop: '16px' }}>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: isMobile ? '1rem' : '1.2rem', marginTop: '16px' }}>
             A journey through my career — building, breaking, and learning with passion.
           </p>
         </motion.div>
@@ -126,12 +136,12 @@ export default function Experience() {
           <div 
             style={{
               position: 'absolute',
-              left: '50%',
+              left: isMobile ? '0' : '50%',
               top: 0,
               bottom: 0,
               width: '2px',
               background: 'rgba(255, 255, 255, 0.05)',
-              transform: 'translateX(-50%)'
+              transform: isMobile ? 'none' : 'translateX(-50%)'
             }}
           />
 
@@ -139,11 +149,11 @@ export default function Experience() {
           <motion.div 
             style={{
               position: 'absolute',
-              left: '50%',
+              left: isMobile ? '0' : '50%',
               top: 0,
               width: '2px',
               background: 'linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple))',
-              transform: 'translateX(-50%)',
+              transform: isMobile ? 'none' : 'translateX(-50%)',
               scaleY,
               originY: 0
             }}
@@ -151,7 +161,7 @@ export default function Experience() {
 
           <div style={{ display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 1 }}>
             {experience && experience.map((item, index) => (
-              <ExperienceCard key={item.id} item={item} index={index} />
+              <ExperienceCard key={item.id} item={item} index={index} isMobile={isMobile} />
             ))}
           </div>
         </div>

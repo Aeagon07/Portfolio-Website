@@ -1372,8 +1372,8 @@ section {
   }
 
   .experience-timeline-wrapper>div {
-    position: absolute !important;
-    left: 20px !important;
+    position: relative !important;
+    left: 0 !important;
     transform: none !important;
   }
 

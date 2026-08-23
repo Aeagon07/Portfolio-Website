@@ -1,6 +1,5 @@
-// ============================================================
-// PORTFOLIO DATA — Edit this file to personalize your site!
-// ============================================================
+import immutableOpsImg from "C:/Users/Rushikesh/.gemini/antigravity/brain/b6aa773e-0a55-412b-bb49-7ef2b4dd2311/media__1787471764019.png";
+import transitIqImg from "C:/Users/Rushikesh/.gemini/antigravity/brain/b6aa773e-0a55-412b-bb49-7ef2b4dd2311/media__1787473896072.png";
 
 export const personal = {
   name: "Rushikesh Godase",
@@ -12,8 +11,9 @@ export const personal = {
   bio: "I'm a passionate learner currently diving deep into DevOps while having a solid foundation in Data Structures & Algorithms and Web Development. I enjoy building efficient systems and automating workflows to improve development processes.",
   location: "India",
   email: "godaserushikesh07@gmail.com",
-  resumeLink: "#", // Link to your resume PDF
+  resumeLink: "https://drive.google.com/file/d/170CBfUTqxLCAMw5V-SajkY1y2_bqqRa3/view?usp=sharing", // Link to your resume PDF
   avatar: "/assets/avatar.png", // Set to image path or URL, null for generated avatar
+  leetcodeUsername: "Kai_27", // Your LeetCode username for live stats
 };
 
 export const social = {
@@ -63,46 +63,87 @@ export const techBadges = [
 export const projects = [
   {
     id: 1,
-    title: "Imaginify - AI SaaS Platform",
-    category: "AI Platform",
-    description: "Build a REAL Software-as-a-Service app with AI features and payments & credits system.",
+    title: "Knowledge AI - Intelligent Assistance System",
+    category: "AI & Knowledge Management",
+    description: "A Just-in-Time knowledge system that provides context-aware document suggestions to support agents handling complex casework in Appian workflows.",
     features: [
-      "User Authentication: Secure login/signup with Clerk",
-      "Image Generation: AI-powered tools via Cloudinary APIs",
-      "User Dashboard: Personalized space to view and manage generated images",
-      "Subscription Plans: Purchase premium access using Stripe",
-      "Server-side Rendering: Optimized performance and SEO via Next.js"
+      "⭐ Hackathon Winner: 1st Runner-Up at IIT Madras Annual Techfest (Shaastra 2026)",
+      "Context-Aware Suggestions: Automatically analyzes active case data and suggests relevant documents",
+      "Verifiable Citations: Every suggestion includes exact page & paragraph references",
+      "Real-time Integration: WebSocket-based live suggestions as case data changes",
+      "Scalable Architecture: Docker-based deployment with ChromaDB vector search and horizontal scaling"
     ],
-    image: "/assets/projects/imaginify.png",
-    tags: ["Next.js 14", "MongoDB", "Cloudinary AI", "Stripe", "React", "TypeScript"],
-    githubLink: "https://github.com/Aeagon07/Imaginify_Ai_Platform.git",
-    liveLink: "https://ai-saas-app-five-ashen.vercel.app/",
+    image: "/assets/projects/Screenshot 2026-08-23 132937.png",
+    tags: ["FastAPI", "Python 3.11", "React 18", "TypeScript", "ChromaDB", "Socket.IO", "Docker", "Tailwind CSS"],
+    githubLink: "https://github.com/Shiva200505/Knowledge-AI-Intelligent-Assistance.git",
+    liveLink: "https://ai-knowledge-intelligent-system.vercel.app/",
     featured: true,
     themeColor: "#8b5cf6", // Purple
     color: "purple",
   },
   {
     id: 2,
-    title: "Cinematic Portfolio Engine",
-    category: "Personal Portfolio",
-    description: "Build a REAL high-performance portfolio featuring advanced 3D animations, custom UI components, and seamless user experience.",
+    title: "DEV MEET - Real-Time Developer Workspace",
+    category: "WebRTC & AI Collaboration",
+    description: "A high-performance real-time developer collaboration platform combining HD WebRTC video conferencing, multi-language Monaco code editor, interactive canvas whiteboard, and Groq AI assistance.",
     features: [
-      "3D Interactive Hero: Three.js & GSAP powered floating objects",
-      "Cinematic Preloader: Scanner effect & terminal sequence",
-      "Premium Certificates: Interactive envelope reveal with 4-card slider",
-      "Dynamic Stats: Real-time LeetCode and GitHub integration",
-      "Glassmorphism UI: Custom cursor trails and premium glow effects"
+      "HD WebRTC Video Conferencing: Peer-to-peer audio/video with Google Meet layout & Web Audio speaking detection",
+      "Multi-Language Monaco Code Editor: Real-time code sync via WebSockets with View/Edit role permissions",
+      "Interactive Canvas Whiteboard: Full-featured drawing canvas with shapes, stroke control & real-time sync",
+      "AI-Powered Assistance: Integrated Groq AI (Llama 3.3 70B) for instant code review & meeting transcript insights",
+      "Advanced Meeting Controls: Screen sharing presenter layout, participant management & 1-click invite link"
     ],
-    image: "/assets/projects/portfolio.png",
-    tags: ["React", "Three.js", "GSAP", "Framer Motion", "Tailwind CSS"],
-    githubLink: "https://github.com/Aeagon07/Portfolio-Website.git",
-    liveLink: "#",
+    image: "/assets/projects/Screenshot 2026-08-23 135313.png",
+    tags: ["Next.js 14", "WebRTC", "Django 5", "WebSockets", "Monaco Editor", "Groq AI", "Redis", "Tailwind CSS"],
+    githubLink: "https://github.com/Aeagon07/DEV-MEET.git",
+    liveLink: "https://dev-meet-dun.vercel.app/",
     featured: true,
-    themeColor: "#f59e0b", // Orange/Gold
-    color: "gold",
+    themeColor: "#22c55e", // Green
+    color: "green",
   },
   {
     id: 3,
+    title: "Transit-IQ — Urban Mobility & Fleet Optimizer",
+    category: "AI & Urban Transit Optimization",
+    description: "Sponsored by PMPML Pune, Transit-IQ is an intelligent urban mobility platform utilizing ensemble machine learning, CP-SAT fleet sizing, and GTFS transit routing to eliminate city bus bottlenecks.",
+    features: [
+      "⭐ Sponsored by PMPML Pune",
+      "⭐ Runner-Up Winner at Bluebit Hackathon (PCCOE Pune)",
+      "Hybrid Demand Forecaster: Prophet v1.1.5 + XGBoost ensemble capturing 730-day seasonality & weather data with 8-12% MAPE",
+      "Fleet Optimizer (Google OR-Tools): CP-SAT constraint solver calculating Pareto-optimal bus sizing & diesel load balancing",
+      "RAPTOR Transit Router: Round-Based Public Transit Routing algorithm running 10x faster than Dijkstra on GTFS graphs",
+      "Anomaly Detector: Scikit-Learn IsolationForest running on rolling 200-tick history windows to flag ridership deviations"
+    ],
+    image: transitIqImg,
+    tags: ["FastAPI", "Python 3.11", "Custom RAPTOR Router", "Google OR-Tools", "XGBoost", "Prophet", "Scikit-Learn", "React 19", "Leaflet"],
+    githubLink: "https://github.com/Ayush-Jayatkar/Transit-IQ.git",
+    liveLink: null,
+    featured: true,
+    themeColor: "#ef4444", // Crimson Red
+    color: "red",
+  },
+  {
+    id: 4,
+    title: "CaféSync - AI Canteen Operations System",
+    category: "Smart Canteen & AI Operations",
+    description: "Built CaféSync to resolve rush-hour canteen bottlenecks using AI-assisted kitchen scheduling via Claude 3.5 Sonnet, real-time chef Kanban dashboards, and transparent order tracking.",
+    features: [
+      "AI Kitchen Scheduling: Uses Claude 3.5 Sonnet API to assess load & determine preparation priority",
+      "Real-Time Chef Kanban: Live dashboard visualizing kitchen workload and chronological order dispatch",
+      "Transparent Order Tracking: Real-time student interface tracking Queued → Preparing → Ready flow",
+      "Dynamic Pre-Ordering & Menu: Custom pickup time scheduling & time-based automatic menu picks",
+      "Role-Based Portals: Dedicated Student, Chef Kanban, and Admin Analytics & CRUD management portals"
+    ],
+    image: immutableOpsImg,
+    tags: ["React 19", "Vite", "Firebase Auth", "Firestore", "Claude 3.5 Sonnet", "Chart.js", "Vercel"],
+    githubLink: "https://github.com/Aeagon07/ImmutableOps.git",
+    liveLink: "https://immutable-ops-dzzg.vercel.app/",
+    featured: true,
+    themeColor: "#f59e0b", // Warm Gold/Orange
+    color: "gold",
+  },
+  {
+    id: 5,
     title: "MarketMind - Workflow Automation System",
     category: "Marketing Workflow System",
     description: "Built MarketMind, an AI-powered marketing automation platform that streamlines campaign creation, content generation, and team collaboration.",
@@ -120,6 +161,26 @@ export const projects = [
     featured: true,
     themeColor: "#ec4899", // Pink
     color: "pink",
+  },
+  {
+    id: 6,
+    title: "Imaginify - AI SaaS Platform",
+    category: "AI SaaS Platform",
+    description: "Build a REAL Software-as-a-Service app with AI features and payments & credits system.",
+    features: [
+      "User Authentication: Secure login/signup with Clerk",
+      "Image Generation: AI-powered tools via Cloudinary APIs",
+      "User Dashboard: Personalized space to view and manage generated images",
+      "Subscription Plans: Purchase premium access using Stripe",
+      "Server-side Rendering: Optimized performance and SEO via Next.js"
+    ],
+    image: "/assets/projects/imaginify.png",
+    tags: ["Next.js 14", "MongoDB", "Cloudinary AI", "Stripe", "React", "TypeScript"],
+    githubLink: "https://github.com/Aeagon07/Imaginify_Ai_Platform.git",
+    liveLink: "https://ai-saas-app-five-ashen.vercel.app/",
+    featured: true,
+    themeColor: "#4ce6ff", // Cyan
+    color: "cyan",
   },
   // {
   //   id: 4,
@@ -182,15 +243,15 @@ export const projects = [
 ];
 
 export const leetcodeStats = {
-  totalSolved: 241,
-  totalQuestions: 3251, // Based on the screenshot aggregate
-  rank: 587148,
-  badges: 2,
-  reputation: 1,
+  totalSolved: "400+",
+  totalQuestions: 4033,
+  contestRating: "1616+",
+  topPercent: "Top 20%",
+  badges: "5+",
   categories: [
-    { name: "Easy", solved: 113, total: 927, beats: 75, color: "var(--accent-cyan)" },
-    { name: "Medium", solved: 107, total: 1614, beats: 68, color: "var(--accent-green)" },
-    { name: "Hard", solved: 21, total: 710, beats: 45, color: "var(--accent-red)" },
+    { name: "Easy",   solved: 169, total: 961,  color: "var(--accent-cyan)" },
+    { name: "Medium", solved: 198, total: 2105, color: "var(--accent-green)" },
+    { name: "Hard",   solved: 44,  total: 967,  color: "var(--accent-red)" },
   ]
 };
 
@@ -246,17 +307,45 @@ export const education = [
 export const achievements = [
   {
     id: 1,
-    title: "Appian Hackathon 1st Runner-Up",
-    institution: "IIT Madras",
+    title: "2× IEEE Research Papers Published",
+    institution: "IEEE Xplore Digital Library",
     duration: "2025-26",
-    description: "We built Intelligent knowledge retrieval for complex case management",
+    description: "Authored and published 2 peer-reviewed academic research papers indexed on IEEE Xplore, contributing original findings to the global scientific community.",
   },
   {
     id: 2,
+    title: "Winner — INNOVEX Hackathon 2026",
+    institution: "D.Y. Patil International University, Ravet",
+    duration: "2026",
+    description: "Secured 1st place at INNOVEX 2026, delivering an innovative solution that outperformed competing teams across multiple technical evaluation rounds.",
+  },
+  {
+    id: 3,
+    title: "Appian Hackathon 1st Runner-Up",
+    institution: "IIT Madras",
+    duration: "2025-26",
+    description: "Engineered an intelligent knowledge retrieval system for complex case management, securing 1st Runner-Up at the Appian Hackathon.",
+  },
+  {
+    id: 4,
+    title: "Runner-Up — BlueBit Hackathon 2026",
+    institution: "PCCOE, Pune",
+    duration: "2026",
+    description: "Achieved Runner-Up position at BlueBit Hackathon 2026, recognized for building a technically robust and impactful solution under competitive time constraints.",
+  },
+  {
+    id: 5,
+    title: "Finalist — AMD Slingshot Challenge",
+    institution: "AMD",
+    duration: "2026",
+    description: "Shortlisted as a national finalist in the AMD Slingshot Challenge, a prestigious industry competition testing advanced hardware-software co-design and optimization skills.",
+  },
+  {
+    id: 6,
     title: "Internal Smart India Hackathon Finalist",
     institution: "VIT Pune",
     duration: "2024",
-    description: "Developed a prototype Automated Security Policy Configuration System Using CIS Guidelines",
+    description: "Developed a prototype Automated Security Policy Configuration System leveraging CIS Guidelines, selected as an institute-level SIH finalist.",
   },
 ];
 

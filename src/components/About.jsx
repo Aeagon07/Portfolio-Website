@@ -78,13 +78,15 @@ function OrbitingIcons() {
 
 // LeetCode Card Component
 function LeetCodeCard({ index }) {
-  const { totalSolved, totalQuestions, rank, badges, reputation, categories } = leetcodeStats;
-  const percentage = (totalSolved / totalQuestions) * 100;
+  const { totalSolved, totalQuestions, contestRating, topPercent, badges, categories } = leetcodeStats;
   const circumference = 2 * Math.PI * 40;
+  // Use 411 as the actual number for the ring (the "+" is just display)
+  const rawSolved = 411;
+  const percentage = (rawSolved / totalQuestions) * 100;
   const offset = circumference - (percentage / 100) * circumference;
 
   return (
-    <motion.div 
+    <motion.div
       variants={fadeUp}
       custom={index}
       initial="hidden"
@@ -92,22 +94,25 @@ function LeetCodeCard({ index }) {
       viewport={{ once: false, margin: "-50px" }}
       whileHover={{ scale: 1.02, y: -5, boxShadow: '0 0 25px rgba(76, 230, 255, 0.2)' }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="glass-card leetcode-card" 
+      className="glass-card leetcode-card"
       style={{ display: 'flex', flexDirection: 'column', padding: '24px' }}
     >
-      <div className="card-header">
+      {/* Header */}
+      <div className="card-header" style={{ marginBottom: '16px' }}>
         <Code2 className="gradient-text-cyan" size={24} />
         <h3 className="card-title">LeetCode</h3>
       </div>
 
+      {/* Circle + Stats grid */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '32px', marginBottom: '24px' }}>
+        {/* Progress ring */}
         <div className="progress-circle-container">
           <svg width="100" height="100" viewBox="0 0 100 100">
             <circle className="progress-circle-bg" cx="50" cy="50" r="40" />
-            <circle 
-              className="progress-circle-value" 
+            <circle
+              className="progress-circle-value"
               cx="50" cy="50" r="40"
-              style={{ strokeDasharray: circumference, strokeDashoffset: offset }}
+              style={{ strokeDasharray: circumference, strokeDashoffset: offset, transition: 'stroke-dashoffset 1s ease' }}
             />
           </svg>
           <div className="progress-text">
@@ -116,33 +121,37 @@ function LeetCodeCard({ index }) {
           </div>
         </div>
 
+        {/* Stats: Contest Rating | Top % | Badges */}
         <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
           <div className="glass-card" style={{ padding: '10px', textAlign: 'center', background: 'rgba(255,255,255,0.02)' }}>
-            <div style={{ fontSize: '14px', fontWeight: 800 }}>{rank}</div>
-            <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>RANK</div>
+            <div style={{ fontSize: '13px', fontWeight: 800, color: 'var(--accent-cyan)' }}>{contestRating}</div>
+            <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>CONTEST RATING</div>
           </div>
           <div className="glass-card" style={{ padding: '10px', textAlign: 'center', background: 'rgba(255,255,255,0.02)' }}>
-            <div style={{ fontSize: '14px', fontWeight: 800, color: '#facc15' }}>{badges}</div>
-            <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>BADGES</div>
+            <div style={{ fontSize: '13px', fontWeight: 800, color: '#22c55e' }}>{topPercent}</div>
+            <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>RANKING</div>
           </div>
           <div className="glass-card" style={{ gridColumn: 'span 2', padding: '10px', textAlign: 'center', background: 'rgba(255,255,255,0.02)' }}>
-            <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--accent-purple)' }}>{reputation}</div>
-            <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>REPUTATION</div>
+            <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--accent-purple)' }}>20+</div>
+            <div style={{ fontSize: '10px', color: 'var(--text-muted)' }}>CONTESTS</div>
           </div>
         </div>
       </div>
 
+      {/* Difficulty bars */}
       <div className="difficulty-bars" style={{ marginTop: 'auto' }}>
         {categories.map((cat) => (
           <div key={cat.name} className="difficulty-item">
             <div className="difficulty-info">
               <span>{cat.name}</span>
-              <span style={{ color: 'rgba(255,255,255,0.5)' }}>{cat.solved}/{cat.total} <span style={{ color: cat.color, marginLeft: '8px' }}>Beats {cat.beats}%</span></span>
+              <span style={{ color: 'rgba(255,255,255,0.5)' }}>
+                {cat.solved}/{cat.total}
+              </span>
             </div>
             <div className="difficulty-bar-bg">
-              <div 
+              <div
                 className="difficulty-bar-fill"
-                style={{ width: `${(cat.solved / cat.total) * 100}%`, backgroundColor: cat.color }}
+                style={{ width: `${(cat.solved / cat.total) * 100}%`, backgroundColor: cat.color, transition: 'width 1s ease' }}
               />
             </div>
           </div>
@@ -455,14 +464,16 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <div className="tabs-header">
-            <button 
+            <button
+              type="button"
               className={`tab-btn ${activeTab === 'education' ? 'active' : ''}`}
               onClick={() => setActiveTab('education')}
             >
               <GraduationCap size={18} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
               Education
             </button>
-            <button 
+            <button
+              type="button"
               className={`tab-btn ${activeTab === 'achievements' ? 'active' : ''}`}
               onClick={() => setActiveTab('achievements')}
             >
@@ -471,7 +482,7 @@ export default function About() {
             </button>
           </div>
 
-          <div style={{ minHeight: '400px', position: 'relative' }}>
+          <div style={{ minHeight: '900px', position: 'relative', overflow: 'hidden' }}>
             <AnimatePresence mode="wait">
               {activeTab === 'education' ? (
                 <Timeline key="edu" data={education} type="education" />

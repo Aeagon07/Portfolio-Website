@@ -174,18 +174,22 @@ export default function Projects() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '12px' }}>
-                  <a 
-                    href={activeProject.liveLink} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="btn-premium-compact"
-                    style={{ '--btn-color': activeProject.themeColor }}
-                  >
-                    <ExternalLink size={16} /> Live Demo
-                  </a>
-                  <a href={activeProject.githubLink} target="_blank" rel="noreferrer" className="btn-premium-compact secondary">
-                    <Github size={16} /> Source
-                  </a>
+                  {activeProject.liveLink && activeProject.liveLink !== '#' && (
+                    <a 
+                      href={activeProject.liveLink} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="btn-premium-compact"
+                      style={{ '--btn-color': activeProject.themeColor }}
+                    >
+                      <ExternalLink size={16} /> Live Demo
+                    </a>
+                  )}
+                  {activeProject.githubLink && (
+                    <a href={activeProject.githubLink} target="_blank" rel="noreferrer" className="btn-premium-compact secondary">
+                      <Github size={16} /> Source
+                    </a>
+                  )}
                 </div>
               </motion.div>
             </AnimatePresence>

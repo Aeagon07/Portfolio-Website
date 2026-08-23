@@ -109,7 +109,8 @@ export default function Hero() {
           custom={0}
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.5rem, 10vw, 7.5rem)', // Scaled down slightly to fit on one line
+            fontSize: 'clamp(2rem, 7vw, 5.5rem)',
+            whiteSpace: 'nowrap',
             fontWeight: 900,
             lineHeight: 1.0,
             letterSpacing: '-0.03em',

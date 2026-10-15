@@ -1,6 +1,3 @@
-import immutableOpsImg from "C:/Users/Rushikesh/.gemini/antigravity/brain/b6aa773e-0a55-412b-bb49-7ef2b4dd2311/media__1787471764019.png";
-import transitIqImg from "C:/Users/Rushikesh/.gemini/antigravity/brain/b6aa773e-0a55-412b-bb49-7ef2b4dd2311/media__1787473896072.png";
-
 export const personal = {
   name: "Rushikesh Godase",
   firstName: "Rushikesh",
@@ -125,7 +122,7 @@ export const projects = [
       "RAPTOR Transit Router: Round-Based Public Transit Routing algorithm running 10x faster than Dijkstra on GTFS graphs",
       "Anomaly Detector: Scikit-Learn IsolationForest running on rolling 200-tick history windows to flag ridership deviations"
     ],
-    image: transitIqImg,
+    image: "/assets/projects/transit-iq.png",
     tags: ["FastAPI", "Python 3.11", "Custom RAPTOR Router", "Google OR-Tools", "XGBoost", "Prophet", "Scikit-Learn", "React 19", "Leaflet"],
     githubLink: "https://github.com/Ayush-Jayatkar/Transit-IQ.git",
     liveLink: null,
@@ -145,7 +142,7 @@ export const projects = [
       "Dynamic Pre-Ordering & Menu: Custom pickup time scheduling & time-based automatic menu picks",
       "Role-Based Portals: Dedicated Student, Chef Kanban, and Admin Analytics & CRUD management portals"
     ],
-    image: immutableOpsImg,
+    image: "/assets/projects/immutable-ops.png",
     tags: ["React 19", "Vite", "Firebase Auth", "Firestore", "Claude 3.5 Sonnet", "Chart.js", "Vercel"],
     githubLink: "https://github.com/Aeagon07/ImmutableOps.git",
     liveLink: "https://immutable-ops-dzzg.vercel.app/",

@@ -5,13 +5,13 @@ export const personal = {
   name: "Rushikesh Godase",
   firstName: "Rushikesh",
   lastName: "Godase",
-  title: "MERN Stack Developer & DevOps Enthusiast",
-  roles: ["Full Stack Developer", "UI/UX Designer", "Blockchain Developer", "GenAI Developer", "AI Systems Engineer"],
-  tagline: "Building efficient systems and automating workflows.",
-  bio: "I'm a passionate learner currently diving deep into DevOps while having a solid foundation in Data Structures & Algorithms and Web Development. I enjoy building efficient systems and automating workflows to improve development processes.",
+  title: "Full Stack Developer | Salesforce & DevOps",
+  roles: ["Full Stack Developer", "Salesforce Platform Developer-I", "DevOps Enthusiast", "AI Systems Engineer"],
+  tagline: "Building full-stack applications, Salesforce solutions, and production-ready workflows.",
+  bio: "I'm a full-stack developer with Salesforce Platform Developer (PD-I) level knowledge, including Apex, SOQL, Flows, and Lightning Web Components. I also work with Docker, Kubernetes, and Jenkins to containerize applications, orchestrate services, and automate production deployments. I enjoy building reliable products from end to end.",
   location: "India",
   email: "godaserushikesh07@gmail.com",
-  resumeLink: "https://drive.google.com/file/d/170CBfUTqxLCAMw5V-SajkY1y2_bqqRa3/view?usp=sharing", // Link to your resume PDF
+  resumeLink: "https://drive.google.com/file/d/12MC95oFsLKHHPW9wsJ4c8rb1Q5GEfZq9/view?usp=sharing", // Link to your resume PDF
   avatar: "/assets/avatar.png", // Set to image path or URL, null for generated avatar
   leetcodeUsername: "Kai_27", // Your LeetCode username for live stats
 };
@@ -47,9 +47,20 @@ export const skills = [
     items: [
       { name: "Git & GitHub", level: 90 },
       { name: "Docker", level: 72 },
+      { name: "Kubernetes", level: 65 },
+      { name: "Jenkins", level: 65 },
       { name: "Figma", level: 75 },
       { name: "MongoDB", level: 80 },
       { name: "PostgreSQL", level: 75 },
+    ],
+  },
+  {
+    category: "Salesforce",
+    items: [
+      { name: "Apex", level: 70 },
+      { name: "SOQL & SOSL", level: 70 },
+      { name: "Flows", level: 70 },
+      { name: "Lightning Web Components (LWC)", level: 70 },
     ],
   },
 ];
@@ -243,11 +254,11 @@ export const projects = [
 ];
 
 export const leetcodeStats = {
-  totalSolved: "400+",
+  totalSolved: "500+",
   totalQuestions: 4033,
   contestRating: "1616+",
   topPercent: "Top 20%",
-  badges: "5+",
+  badges: "7+",
   categories: [
     { name: "Easy",   solved: 169, total: 961,  color: "var(--accent-cyan)" },
     { name: "Medium", solved: 198, total: 2105, color: "var(--accent-green)" },
@@ -385,7 +396,7 @@ export const experience = [
     type: "Learning",
     company: "Personal Project",
     role: "AI & Systems Developer",
-    duration: "2024 – Present",
+    duration: "2024 – 2026",
     location: "Pune, India",
     description: [
       "Built an AVL Tree-based Stock Price Management System handling real-time insertions and deletions",
@@ -395,6 +406,20 @@ export const experience = [
 
     ],
     skills: ["React", "Java", "C++", "Solidity", "JavaScript", "DSA"],
+    logo: null,
+  },
+  {
+    id: 4,
+    type: "Learning",
+    company: "Professional Development",
+    role: "Salesforce Platform Developer I ",
+    duration: "In Progress",
+    location: "Self-paced",
+    description: [
+      "Developing Salesforce platform skills through focused Platform Developer I training and hands-on practice.",
+      "Building familiarity with custom application development, automation, and AI-powered Salesforce workflows.",
+    ],
+    skills: ["SOQL", "Apex", "LWC", "Flows", "Triggers", "Agentforce"],
     logo: null,
   },
 ];

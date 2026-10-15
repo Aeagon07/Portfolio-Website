@@ -3,9 +3,11 @@ import Matter from 'matter-js';
 
 const SKILLS_DATA = [
   // Previous core ones
-  { name: 'React', color: '#00bcd4', logo: 'https://cdn.worldvectorlogo.com/logos/react-2.svg' },
+  { name: 'React', color: '#00bcd4', logo: '/assets/logos/react-skill.svg' },
   { name: 'JavaScript', color: '#F7DF1E', logo: '/assets/logos/javascript.png' },
-  { name: 'SQL', color: '#336791', logo: 'https://cdn.worldvectorlogo.com/logos/postgresql.svg' },
+  { name: 'SQL', color: '#336791', logo: '/assets/logos/sql-skill.svg' },
+  { name: 'LWC', color: '#00A1E0', logo: '/assets/logos/lwc-skill.svg' },
+  { name: 'Apex', color: '#7b3ff2', logo: '/assets/logos/apex-skill.svg' },
   // User's new list
   { name: 'GSAP', color: '#88ce02', logo: 'https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg' },
   { name: 'TypeScript', color: '#3178C6', logo: 'https://cdn.worldvectorlogo.com/logos/typescript.svg' },
@@ -14,6 +16,7 @@ const SKILLS_DATA = [
   { name: 'Git', color: '#333333', logo: 'https://cdn.worldvectorlogo.com/logos/git-icon.svg' },
   { name: 'Docker', color: '#000000', logo: '/assets/logos/docker.png' },
   { name: 'Kubernetes', color: '#000000', logo: '/assets/logos/kubernetes.png' },
+  { name: 'Jenkins', color: '#D33833', logo: 'https://cdn.worldvectorlogo.com/logos/jenkins-1.svg' },
   { name: 'Node.js', color: '#339933', logo: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg' },
   { name: 'Solana', color: '#000000', logo: '/assets/logos/solana.jpg' },
   { name: 'Rust', color: '#CE412B', logo: 'https://cdn.worldvectorlogo.com/logos/rust.svg' },

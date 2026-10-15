@@ -37,7 +37,7 @@ function ExperienceCard({ item, index, isMobile }) {
           boxShadow: '0 0 20px rgba(76, 230, 255, 0.3)'
         }}
       >
-        {item.type === 'education' ? <GraduationCap size={isMobile ? 14 : 18} color="var(--accent-purple)" /> : <Briefcase size={isMobile ? 14 : 18} color="var(--accent-cyan)" />}
+        {item.type === 'education' || item.type === 'Learning' ? <GraduationCap size={isMobile ? 14 : 18} color="var(--accent-purple)" /> : <Briefcase size={isMobile ? 14 : 18} color="var(--accent-cyan)" />}
       </div>
 
       {/* Card Content */}

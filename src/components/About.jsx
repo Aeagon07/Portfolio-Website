@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Mail, Code2, Coffee, Lightbulb, Rocket, GraduationCap, School, BookOpen, Trophy, Github as GithubIcon, Database, ExternalLink, Award, Star, GitCommit, GitPullRequest, AlertCircle, Share2 } from 'lucide-react';
-import { SiPython, SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiCplusplus } from 'react-icons/si';
+import { SiPython, SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiMongodb, SiTailwindcss } from 'react-icons/si';
 import { personal, leetcodeStats, githubStats, education, achievements, social } from '../data/portfolio';
 
 const fadeUp = {
@@ -22,7 +22,7 @@ function OrbitingIcons() {
     { icon: <SiNodedotjs size={22} />, color: '#339933', delay: 18 },
     { icon: <SiMongodb size={22} />, color: '#47a248', delay: 22.5 },
     { icon: <SiTailwindcss size={22} />, color: '#06b6d4', delay: 27 },
-    { icon: <SiCplusplus size={22} />, color: '#00599c', delay: 31.5 },
+    { image: '/assets/logos/salesforce-wordmark.png', color: '#00a1e0', delay: 31.5 },
   ];
 
   return (
@@ -38,7 +38,13 @@ function OrbitingIcons() {
             color: item.color,
           }}
         >
-          {item.icon}
+          {item.image ? (
+            <img
+              src={item.image}
+              alt="Salesforce cloud"
+              style={{ width: '40px', height: '28px', objectFit: 'contain' }}
+            />
+          ) : item.icon}
         </div>
       ))}
       {/* Central Profile Image */}
